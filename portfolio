@@ -1,10 +1,853 @@
-<path d="M32 18 L20 28 L14 28" stroke="rgba(100,200,100,0.6)" stroke-width="2"/>
-            </svg>
-          </div>
-          <div>
-            <div class="visor-card-code">Quick Release</div>
-            <div class="visor-card-name">Quick Release NVG Mount</div>
-            <div class="visor-card-desc">Features a snap-down mechanism for fast detachment of night vision apparatus during flight adjustments.</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiger Performance — MSA Helmets Catalogue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #D91212;
+    --red-light: #FF2C2C;
+    --black: #0A0A0B;
+    --dark: #111113;
+    --card: #161618;
+    --mid: #1E1E21;
+    --border: rgba(255,255,255,0.07);
+    --text: #F0F0F0;
+    --muted: #7A7A82;
+    --subtle: #3A3A40;
+    --white: #FFFFFF;
+    --page-w: 1100px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    background: #0d0d0d;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 75% 30%, rgba(217,18,18,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 70% at 20% 60%, rgba(140,40,40,0.15) 0%, transparent 55%),
+      linear-gradient(135deg, #0a0a0b 0%, #1a1010 40%, #0d0a0a 100%);
+  }
+
+  /* Noise grain overlay */
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-meta {
+    position: absolute;
+    top: 28px; left: 48px; right: 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 10;
+  }
+
+  .hero-meta-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .hero-meta-right {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .hero-quote {
+    position: absolute;
+    top: 60px; right: 48px;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(240,240,240,0.6);
+    line-height: 1.6;
+    max-width: 220px;
+    text-align: right;
+    z-index: 10;
+  }
+
+  .hero-wordmark {
+    position: absolute;
+    bottom: 56px; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    z-index: 10;
+  }
+
+  .hero-wordmark h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 13vw, 148px);
+    letter-spacing: 0.02em;
+    color: var(--white);
+    line-height: 1;
+    text-shadow: 0 0 80px rgba(217,18,18,0.25);
+  }
+
+  .hero-wordmark h1 span {
+    color: var(--red);
+  }
+
+  .hero-tagline {
+    position: absolute;
+    bottom: 28px; left: 48px;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: rgba(240,240,240,0.5);
+    line-height: 1.7;
+    z-index: 10;
+  }
+
+  /* Decorative diagonal slash */
+  .hero-slash {
+    position: absolute;
+    top: 0; left: 54%; width: 3px; height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(217,18,18,0.6), transparent);
+    transform: skewX(-8deg);
+    z-index: 5;
+  }
+
+  .hero-slash2 {
+    position: absolute;
+    top: 0; left: 55.5%; width: 1px; height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(217,18,18,0.25), transparent);
+    transform: skewX(-8deg);
+    z-index: 5;
+  }
+
+  /* ── PROJECT BRIEF BAR ───────────────────────────────────────────────── */
+  .brief-bar {
+    background: #101012;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 48px;
+    max-width: 100%;
+  }
+
+  .brief-col h4 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brief-col p {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .brief-col p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── SECTION COMMON ──────────────────────────────────────────────────── */
+  section {
+    max-width: var(--page-w);
+    margin: 0 auto;
+    padding: 72px 48px;
+  }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1.5px;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 72px);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  h2 em {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .section-intro {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.8;
+    margin-top: 12px;
+    margin-bottom: 56px;
+  }
+
+  /* ── BOOK MOCKUP SECTION ─────────────────────────────────────────────── */
+  .mockup-section {
+    background: #0e0e10;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 48px;
+    overflow: hidden;
+  }
+
+  .mockup-inner {
+    max-width: var(--page-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .mockup-text .section-label { margin-bottom: 20px; }
+
+  .mockup-text h2 { margin-bottom: 20px; }
+
+  .mockup-text p {
+    font-size: 14.5px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .mockup-book {
+    position: relative;
+    perspective: 1200px;
+  }
+
+  /* Stacked book illustration */
+  .book-stack {
+    position: relative;
+    width: 100%;
+    height: 340px;
+  }
+
+  .book {
+    position: absolute;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 8px 24px rgba(0,0,0,0.5);
+  }
+
+  .book-main {
+    width: 380px; height: 240px;
+    bottom: 0; left: 60px;
+    transform: perspective(800px) rotateX(4deg) rotateY(-6deg);
+    background: linear-gradient(135deg, #1c1810 0%, #2a2218 50%, #1a1610 100%);
+    z-index: 3;
+  }
+
+  .book-back {
+    width: 370px; height: 235px;
+    bottom: 16px; left: 20px;
+    transform: perspective(800px) rotateX(3deg) rotateY(-4deg);
+    background: linear-gradient(135deg, #141210 0%, #1e1a14 100%);
+    z-index: 2;
+  }
+
+  .book-back2 {
+    width: 360px; height: 228px;
+    bottom: 28px; left: 0;
+    transform: perspective(800px) rotateX(2deg) rotateY(-2deg);
+    background: #0f0d0b;
+    z-index: 1;
+  }
+
+  .book-cover-content {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-end;
+    padding: 20px 24px;
+    background: linear-gradient(
+      135deg,
+      rgba(217,18,18,0.08) 0%,
+      transparent 40%,
+      rgba(0,0,0,0.3) 100%
+    );
+  }
+
+  .book-cover-content::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='g' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='30' cy='30' r='0.6' fill='rgba(255,255,255,0.04)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  .book-text {
+    position: relative; z-index: 1;
+  }
+
+  .book-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.92);
+    line-height: 1;
+  }
+
+  .book-brand span { color: var(--red); }
+
+  .book-sub {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .book-corner {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+    text-align: right;
+  }
+
+  .book-red-line {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--red);
+  }
+
+  /* ── HELMET CARDS GRID ───────────────────────────────────────────────── */
+  .helmets-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 8px;
+  }
+
+  .helmet-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+
+  .helmet-card-bg {
+    position: absolute; inset: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .helmet-card:hover .helmet-card-bg {
+    transform: scale(1.05);
+  }
+
+  .helmet-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 40%,
+      rgba(0,0,0,0.85) 100%
+    );
+  }
+
+  .helmet-card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px 18px;
+  }
+
+  .helmet-card-model {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .helmet-card-name {
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(240,240,240,0.65);
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+
+  .helmet-card-badge {
+    position: absolute;
+    top: 16px; right: 14px;
+    background: var(--red);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: white;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 2px;
+  }
+
+  /* Colour-coded backgrounds */
+  .card-silver { background: linear-gradient(135deg, #2a2e30 0%, #4a5055 40%, #1e2225 100%); }
+  .card-blue   { background: linear-gradient(135deg, #0d1f4a 0%, #1a3a7c 50%, #0a1530 100%); }
+  .card-orange { background: linear-gradient(135deg, #2a1205 0%, #8a3200 50%, #1a0c04 100%); }
+  .card-white  { background: linear-gradient(135deg, #1e2020 0%, #3a4040 50%, #151818 100%); }
+
+  .helmet-icon {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  /* SVG helmet silhouette */
+  .helmet-svg {
+    width: 120px;
+    opacity: 0.5;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.5));
+  }
+
+  /* ── VISOR OPTIONS ───────────────────────────────────────────────────── */
+  .visor-section {
+    background: #0c0c0e;
+    border-top: 1px solid var(--border);
+  }
+
+  .visor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 8px;
+  }
+
+  .visor-card {
+    background: var(--card);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+  }
+
+  .visor-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .visor-card:hover::before { transform: scaleX(1); }
+  .visor-card:hover { background: #1a1a1d; }
+
+  .visor-card-code {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 0.04em;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .visor-card-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .visor-card-desc {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .visor-icon {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 4px;
+  }
+
+  /* ── FEATURES SPLIT ──────────────────────────────────────────────────── */
+  .features-section {
+    border-top: 1px solid var(--border);
+    background: #0a0a0c;
+  }
+
+  .features-inner {
+    max-width: var(--page-w);
+    margin: 0 auto;
+    padding: 72px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  .feat-col {
+    background: var(--card);
+    padding: 40px 32px;
+    position: relative;
+  }
+
+  .feat-col:first-child { border-left: 2px solid var(--red); }
+
+  .feat-col h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .feat-col .model-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .feat-list {
+    list-style: none;
+  }
+
+  .feat-list li {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .feat-list li::before {
+    content: '—';
+    color: var(--red);
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── FULL-BLEED HIGHLIGHT ────────────────────────────────────────────── */
+  .highlight-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+    border-top: 1px solid var(--border);
+  }
+
+  .highlight-panel {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .highlight-panel-a {
+    background: linear-gradient(135deg, #1a0808 0%, #2d0e0e 50%, #0d0606 100%);
+  }
+
+  .highlight-panel-b {
+    background: linear-gradient(135deg, #0a0d1a 0%, #0e1428 50%, #060810 100%);
+    border-left: 1px solid var(--border);
+  }
+
+  .highlight-panel::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='g' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='20' cy='20' r='0.5' fill='rgba(255,255,255,0.035)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .highlight-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .highlight-panel h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    margin-bottom: 20px;
+  }
+
+  .highlight-panel-b h2 { color: rgba(240,240,240,0.9); }
+
+  .highlight-desc {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    max-width: 360px;
+  }
+
+  .highlight-stat {
+    position: absolute;
+    top: 48px; right: 48px;
+    text-align: right;
+  }
+
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    letter-spacing: -0.02em;
+    color: rgba(217,18,18,0.15);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--subtle);
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #080809;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    color: var(--text);
+  }
+
+  .footer-brand span { color: var(--red); }
+
+  .footer-contact {
+    display: flex;
+    gap: 40px;
+  }
+
+  .footer-contact-item {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-contact-item strong {
+    display: block;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+
+  .footer-page {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--subtle);
+  }
+
+  /* Bottom red line */
+  footer::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), transparent);
+  }
+
+  footer { position: relative; }
+
+  /* ── SCROLL ANIMATIONS ───────────────────────────────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* Hero animation */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-wordmark h1 { animation: slideUp 0.9s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s both; }
+  .hero-tagline     { animation: slideUp 0.9s cubic-bezier(0.25,0.46,0.45,0.94) 0.45s both; }
+  .hero-quote       { animation: slideUp 0.9s cubic-bezier(0.25,0.46,0.45,0.94) 0.35s both; }
+  .brief-bar        { animation: slideUp 0.7s cubic-bezier(0.25,0.46,0.45,0.94) 0.6s both; }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero { height: 380px; }
+    .hero-wordmark h1 { font-size: 64px; }
+    .brief-bar { grid-template-columns: 1fr 1fr; padding: 32px 24px; }
+    section { padding: 48px 24px; }
+    .helmets-grid { grid-template-columns: repeat(2, 1fr); }
+    .visor-grid { grid-template-columns: 1fr 1fr; }
+    .features-inner { grid-template-columns: 1fr; padding: 48px 24px; }
+    .highlight-section { grid-template-columns: 1fr; }
+    .mockup-inner { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 32px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ HERO ════════════════ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-slash"></div>
+  <div class="hero-slash2"></div>
+
+  <div class="hero-meta">
+    <span class="hero-meta-left">Tiger Performance &nbsp;|&nbsp; 2026</span>
+    <span class="hero-meta-right">Catalogue Design</span>
+  </div>
+
+  <div class="hero-quote">
+    " Engineered for<br>precision & protection "
+  </div>
+
+  <div class="hero-wordmark">
+    <h1>TIGER<span>&nbsp;×&nbsp;</span>MSA</h1>
+  </div>
+
+  <p class="hero-tagline">
+    " Designed for the aviation pilot — helicopter,<br>
+    fixed wing, agricultural &amp; warbird "
+  </p>
+</div>
+
+<!-- ════════════════ PROJECT BRIEF ════════════════ -->
+<div class="brief-bar">
+  <div class="brief-col">
+    <h4>Project Brief</h4>
+    <p>North American distributor portfolio for MSA Aviation Helmets — combining structured layouts, imagery, and typography to present the world's most complete helmet communication packages.</p>
+  </div>
+  <div class="brief-col">
+    <h4>Product Range</h4>
+    <p><strong>LH050 · LH250</strong><br>LH350 · LA100<br>DOI/USFS Certified</p>
+  </div>
+  <div class="brief-col">
+    <h4>Applications</h4>
+    <p>Helicopter<br>Fixed Wing<br>Agricultural<br>Warbird</p>
+  </div>
+  <div class="brief-col">
+    <h4>Distributor</h4>
+    <p><strong>Tiger Performance Products, Inc.</strong><br>1-716-674-8545<br>sales@tigerperformance.com</p>
+  </div>
+</div>
+
+<!-- ════════════════ BOOK MOCKUP ════════════════ -->
+<div class="mockup-section">
+  <div class="mockup-inner">
+    <div class="mockup-text fade-up">
+      <div class="section-label">Product Catalogue</div>
+      <h2>MSA <em>Aviation</em><br>Helmets</h2>
+      <p>Available with the largest variety of Helmet Communication Packages in the World. MSA helmets are especially designed and developed for the aviation pilot, available for all helicopter, fixed wing, agricultural and warbird applications.</p>
+      <p>DOI/USFS Certified option available across key models.</p>
+    </div>
+
+    <div class="mockup-book fade-up">
+      <div class="book-stack">
+        <!-- Shadow books -->
+        <div class="book book-back2"></div>
+        <div class="book book-back"></div>
+
+        <!-- Main book -->
+        <div class="book book-main">
+          <div class="book-red-line"></div>
+          <div class="book-cover-content">
+            <div class="book-text">
+              <div class="book-brand">TIGER <span>×</span> MSA</div>
+              <div class="book-sub">Aviation Helmets Catalogue</div>
+            </div>
+            <div class="book-corner">
+              Healing, Clarity<br>&amp; Inner Peace
+            </div>
           </div>
         </div>
       </div>
@@ -12,34 +855,252 @@
   </div>
 </div>
 
-<!-- ════════════════ FEATURES LIST ════════════════ -->
+<!-- ════════════════ HELMET MODELS ════════════════ -->
+<section>
+  <div class="section-label">Model Range</div>
+  <h2>Single Inner Visor<br><em>Helicopter Helmets</em></h2>
+  <p class="section-intro">The LH050 family is available in 14 colours with multiple visor options. Lightweight Kevlar and Carbon Fiber construction throughout.</p>
+
+  <div class="helmets-grid">
+    <!-- Card 1: Silver -->
+    <div class="helmet-card fade-up">
+      <div class="helmet-card-bg card-silver">
+        <div class="helmet-icon">
+          <!-- Helmet SVG silhouette -->
+          <svg class="helmet-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 20 C55 20, 20 60, 20 105 C20 140, 40 168, 72 178 L72 185 C72 190, 76 194, 81 194 L119 194 C124 194, 128 190, 128 185 L128 178 C160 168, 180 140, 180 105 C180 60, 145 20, 100 20Z" fill="rgba(180,190,200,0.4)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <ellipse cx="100" cy="115" rx="62" ry="25" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <path d="M38 115 Q100 135, 162 115" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="helmet-card-overlay"></div>
+      <div class="helmet-card-content">
+        <div class="helmet-card-model">LH050</div>
+        <div class="helmet-card-name">Silver / Arctic White</div>
+      </div>
+      <div class="helmet-card-badge">DOI Cert.</div>
+    </div>
+
+    <!-- Card 2: Blue -->
+    <div class="helmet-card fade-up">
+      <div class="helmet-card-bg card-blue">
+        <div class="helmet-icon">
+          <svg class="helmet-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 20 C55 20, 20 60, 20 105 C20 140, 40 168, 72 178 L72 185 C72 190, 76 194, 81 194 L119 194 C124 194, 128 190, 128 185 L128 178 C160 168, 180 140, 180 105 C180 60, 145 20, 100 20Z" fill="rgba(50,100,200,0.4)" stroke="rgba(100,160,255,0.3)" stroke-width="1.5"/>
+            <ellipse cx="100" cy="115" rx="62" ry="25" fill="rgba(0,0,0,0.5)" stroke="rgba(100,160,255,0.15)" stroke-width="1"/>
+            <path d="M38 115 Q100 135, 162 115" stroke="rgba(100,160,255,0.2)" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="helmet-card-overlay"></div>
+      <div class="helmet-card-content">
+        <div class="helmet-card-model">LH050</div>
+        <div class="helmet-card-name">Royal Blue</div>
+      </div>
+    </div>
+
+    <!-- Card 3: Orange -->
+    <div class="helmet-card fade-up">
+      <div class="helmet-card-bg card-orange">
+        <div class="helmet-icon">
+          <svg class="helmet-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 20 C55 20, 20 60, 20 105 C20 140, 40 168, 72 178 L72 185 C72 190, 76 194, 81 194 L119 194 C124 194, 128 190, 128 185 L128 178 C160 168, 180 140, 180 105 C180 60, 145 20, 100 20Z" fill="rgba(180,70,10,0.5)" stroke="rgba(255,140,30,0.3)" stroke-width="1.5"/>
+            <ellipse cx="100" cy="115" rx="62" ry="25" fill="rgba(0,0,0,0.5)" stroke="rgba(255,140,30,0.15)" stroke-width="1"/>
+            <path d="M38 115 Q100 135, 162 115" stroke="rgba(255,140,30,0.2)" stroke-width="1" fill="none"/>
+            <!-- Orange/black stripe -->
+            <path d="M60 60 L90 30 M80 50 L110 20" stroke="rgba(0,0,0,0.4)" stroke-width="8"/>
+          </svg>
+        </div>
+      </div>
+      <div class="helmet-card-overlay"></div>
+      <div class="helmet-card-content">
+        <div class="helmet-card-model">LH050</div>
+        <div class="helmet-card-name">Orange / Black</div>
+      </div>
+      <div class="helmet-card-badge">Popular</div>
+    </div>
+
+    <!-- Card 4: White/Grey -->
+    <div class="helmet-card fade-up">
+      <div class="helmet-card-bg card-white">
+        <div class="helmet-icon">
+          <svg class="helmet-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 20 C55 20, 20 60, 20 105 C20 140, 40 168, 72 178 L72 185 C72 190, 76 194, 81 194 L119 194 C124 194, 128 190, 128 185 L128 178 C160 168, 180 140, 180 105 C180 60, 145 20, 100 20Z" fill="rgba(200,205,210,0.3)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+            <ellipse cx="100" cy="115" rx="62" ry="25" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <!-- Ear cup detail -->
+            <circle cx="165" cy="110" r="12" fill="rgba(150,155,160,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+      <div class="helmet-card-overlay"></div>
+      <div class="helmet-card-content">
+        <div class="helmet-card-model">LH050</div>
+        <div class="helmet-card-name">White / Grey</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ HIGHLIGHT PANELS ════════════════ -->
+<div class="highlight-section">
+  <div class="highlight-panel highlight-panel-a fade-up">
+    <div class="highlight-stat">
+      <span class="stat-number">14</span>
+      <span class="stat-label">Colours Available</span>
+    </div>
+    <div class="highlight-eyebrow">DOI / USFS Certified</div>
+    <h2>DE-<br>STRESS<br><em style="font-family:'DM Serif Display',serif; font-style:italic; font-size:0.7em; color:rgba(240,240,240,0.5);">Protection</em></h2>
+    <p class="highlight-desc">
+      Certified for use by DOI and USFS personnel. Lightweight Kevlar and Carbon Fiber construction with adjustable spring-loaded outer visor system.
+    </p>
+  </div>
+
+  <div class="highlight-panel highlight-panel-b fade-up">
+    <div class="highlight-stat">
+      <span class="stat-number">NVG</span>
+      <span class="stat-label">Night Vision Ready</span>
+    </div>
+    <div class="highlight-eyebrow">Advanced Series — LH350</div>
+    <h2>FOCU-<br>SSED<br><em style="font-family:'DM Serif Display',serif; font-style:italic; font-size:0.7em; color:rgba(217,18,18,0.6);">Vision</em></h2>
+    <p class="highlight-desc">
+      The LH350 features 2 rotating inner visors, NVG-ready design, compact low-profile construction, and Carbon Aramid Poly Lithium technology.
+    </p>
+  </div>
+</div>
+
+<!-- ════════════════ VISOR OPTIONS ════════════════ -->
+<div class="visor-section">
+  <section style="padding-bottom: 0">
+    <div class="section-label">Accessories</div>
+    <h2>Visor Cover<br><em>Options</em></h2>
+    <p class="section-intro">LH 250 / LA 100 compatible visor covers — multiple construction and NVG configurations available.</p>
+  </section>
+
+  <div style="padding: 0 48px 72px; max-width: var(--page-w); margin: 0 auto;">
+    <div class="visor-grid">
+      <div class="visor-card fade-up">
+        <div class="visor-icon">
+          <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+            <path d="M5 42 Q40 8, 75 42" stroke="rgba(217,18,18,0.6)" stroke-width="3" fill="rgba(217,18,18,0.05)"/>
+            <path d="M12 42 Q40 14, 68 42" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="visor-card-code">CV</div>
+        <div class="visor-card-name">Carbon Visor Cover</div>
+        <div class="visor-card-desc">Carbon fiber construction with polished finish. Standard visor cover for LH250 and LA100.</div>
+      </div>
+
+      <div class="visor-card fade-up">
+        <div class="visor-icon">
+          <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+            <path d="M5 42 Q40 8, 75 42" stroke="rgba(217,18,18,0.6)" stroke-width="3" fill="rgba(217,18,18,0.05)"/>
+            <circle cx="40" cy="20" r="6" fill="rgba(100,140,255,0.3)" stroke="rgba(100,140,255,0.5)" stroke-width="1"/>
+            <line x1="40" y1="14" x2="40" y2="4" stroke="rgba(100,140,255,0.4)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="visor-card-code">SSV</div>
+        <div class="visor-card-name">NVG Screwed Support Carbon Visor Cover</div>
+        <div class="visor-card-desc">Carbon construction with NVG screwed mounting support for night-vision goggle integration.</div>
+      </div>
+
+      <div class="visor-card fade-up">
+        <div class="visor-icon">
+          <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+            <path d="M5 42 Q40 8, 75 42" stroke="rgba(217,18,18,0.6)" stroke-width="3" fill="rgba(217,18,18,0.05)"/>
+            <rect x="25" y="10" width="30" height="20" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="visor-card-code">TP</div>
+        <div class="visor-card-name">Thermo Plastic Visor Cover</div>
+        <div class="visor-card-desc">Lightweight thermo plastic material for maximum comfort and durability during extended operations.</div>
+      </div>
+
+      <div class="visor-card fade-up">
+        <div class="visor-icon">
+          <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+            <path d="M5 42 Q40 8, 75 42" stroke="rgba(217,18,18,0.6)" stroke-width="3" fill="rgba(217,18,18,0.05)"/>
+            <circle cx="40" cy="18" r="8" fill="rgba(217,18,18,0.15)" stroke="rgba(217,18,18,0.5)" stroke-width="1.5"/>
+            <line x1="40" y1="10" x2="40" y2="2" stroke="rgba(217,18,18,0.5)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="visor-card-code">CAV</div>
+        <div class="visor-card-name">NVG Screwed Support Carbon</div>
+        <div class="visor-card-desc">Advanced NVG-ready carbon construction with screwed support system for tactical operations.</div>
+      </div>
+
+      <div class="visor-card fade-up" style="grid-column: span 2;">
+        <div style="display:grid; grid-template-columns: 120px 1fr; gap: 28px; align-items: center;">
+          <div class="visor-icon" style="margin:0; height:80px;">
+            <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+              <path d="M5 42 Q40 8, 75 42" stroke="rgba(217,18,18,0.6)" stroke-width="3" fill="rgba(217,18,18,0.05)"/>
+              <circle cx="40" cy="18" r="8" fill="rgba(217,18,18,0.15)" stroke="rgba(217,18,18,0.5)" stroke-width="1.5"/>
+              <path d="M32 18 L20 28 L14 28" stroke="rgba(100,200,100,0.6)" stroke-width="2" fill="none"/>
+              <circle cx="12" cy="28" r="4" fill="rgba(100,200,100,0.2)" stroke="rgba(100,200,100,0.5)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div>
+            <div class="visor-card-code">CAVQR</div>
+            <div class="visor-card-name">NVG Screwed Support Carbon with ANVIS Adapter + TIGER Quick Release NVG Adapter</div>
+            <div class="visor-card-desc">The most advanced visor cover option — full NVG screwed support, ANVIS adapter, and TIGER's exclusive quick-release NVG adapter system for fast deployment. Compatible with Go Pro Quick Release Camera Mount.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ FEATURES ════════════════ -->
 <div class="features-section">
   <div class="features-inner">
     <div class="feat-col fade-up">
-      <span class="model-tag">LH050 / LH250</span>
-      <h3>Shell &amp; Liner Systems</h3>
+      <h3>LH050 / LH250 / LA100</h3>
+      <span class="model-tag">Standard Features</span>
       <ul class="feat-list">
-        <li>Impact-resistant Carbon-Kevlar composite shell geometry</li>
-        <li>Expanded polystyrene shock absorption liner</li>
-        <li>Memory foam comfort fit padding modules</li>
+        <li>Comfort Liner Kit — 4 interchangeable pads</li>
+        <li>Two shell sizes: XS–M and L–XXL</li>
+        <li>Visor colors: smoke, green, yellow, clear</li>
+        <li>Spring-loaded outer visor</li>
+        <li>Rotating inner visor + anti-rotation detent</li>
+        <li>Cloth nape pad — 3 thicknesses</li>
+        <li>Adjustable leather chin strap</li>
+        <li>Stackable ear cup spacer cushion kit</li>
+        <li>Removable leather edge roll — 3 sizes</li>
+        <li>Communications ready</li>
+        <li>Premium Canvas Crew Bag</li>
+        <li>Kevlar &amp; Carbon Fiber construction</li>
       </ul>
     </div>
+
     <div class="feat-col fade-up">
-      <span class="model-tag">Communication Packages</span>
-      <h3>Audio &amp; Electronics</h3>
+      <h3>LH350</h3>
+      <span class="model-tag">Standard Features</span>
       <ul class="feat-list">
-        <li>High-fidelity 300-ohm ear cup speakers</li>
-        <li>M-87/AIC dynamic noise-canceling microphone</li>
-        <li>MIL-spec straight or coiled down-lead cables</li>
+        <li>Comfort Liner Kit — 4 interchangeable pads</li>
+        <li>Shell sizes: M (52–59cm), L (60–64cm)</li>
+        <li>2 Rotating inner visors</li>
+        <li>Visor colors: smoke, green, yellow, clear</li>
+        <li>Cloth nape pad — 3 thicknesses</li>
+        <li>Leather chin strap (split also available)</li>
+        <li>Removable leather edge trim</li>
+        <li>NVG Ready</li>
+        <li>Communications ready</li>
+        <li>Compact &amp; Low Profile Design</li>
+        <li>Carbon Aramid + Poly Lithium</li>
+        <li>MSA Premium Canvas Crew Bag</li>
       </ul>
     </div>
+
     <div class="feat-col fade-up">
-      <span class="model-tag">Certifications</span>
-      <h3>Safety Standards</h3>
+      <h3>Optional</h3>
+      <span class="model-tag">Add-On Features</span>
       <ul class="feat-list">
-        <li>Full DOI / USFS aviation safety compliance certifications</li>
-        <li>MIL-DTL-87174 structural requirements matching</li>
-        <li>High-velocity impact test certified protection layout</li>
+        <li>TIGER Quick Release Chin Strap</li>
+        <li>Non NVG Adapter Visor Covers</li>
+        <li>NVG Adapter Visor Covers</li>
+        <li>TIGER NVG Quick Release Adapter</li>
+        <li>TIGER Maxillo Face Shield</li>
+        <li>Go Pro Quick Release Camera Mount</li>
       </ul>
     </div>
   </div>
@@ -48,31 +1109,40 @@
 <!-- ════════════════ FOOTER ════════════════ -->
 <footer>
   <div class="footer-brand">TIGER <span>×</span> MSA</div>
+
   <div class="footer-contact">
     <div class="footer-contact-item">
-      <strong>Phone Support</strong>
+      <strong>Phone</strong>
       1-716-674-8545
     </div>
     <div class="footer-contact-item">
-      <strong>Email Distribution</strong>
+      <strong>Fax</strong>
+      1-716-674-7497
+    </div>
+    <div class="footer-contact-item">
+      <strong>Email</strong>
       sales@tigerperformance.com
     </div>
+    <div class="footer-contact-item">
+      <strong>Web</strong>
+      www.tigerperformance.com
+    </div>
   </div>
-  <div class="footer-page">Aviation Portfolio — 2026</div>
+
+  <div class="footer-page">CATALOGUE 2026</div>
 </footer>
 
 <script>
-  // Simple intersection observer to trigger scroll animations cleanly
+  // Scroll-triggered fade-up animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
